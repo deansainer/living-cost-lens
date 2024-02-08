@@ -1,0 +1,56 @@
+.home_nav_link{
+  color: white;
+  margin-left: 30px;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.nav_link{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.navbar{
+  width: 100vw;
+  height: 60px;
+  background-color: rgb(26, 26, 26);
+  color: white;
+}
+
+.country_form{
+  display: flex;
+  justify-content: center;
+}
+
+.country_form input{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.country_form button{
+  border: 1px solid black;
+  margin-left: 10px;
+  background-color: rgb(63, 63, 63);
+  color: white;
+  border-radius: 5px;
+}
+
+.country_form button:hover{
+  background-color: black;
+}
+
+.submit_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(49, 49, 49);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 70px;
+  margin-left: 10px;
+}
