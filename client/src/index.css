@@ -1,3 +1,7 @@
+body{
+  background-image: url('../public/images/earth.jpg');
+}
+
 .home_nav_link{
   color: white;
   margin-left: 30px;
@@ -14,12 +18,13 @@
 
 .navbar{
   width: 100vw;
-  height: 60px;
+  height: 52px;
   background-color: rgb(26, 26, 26);
   color: white;
 }
 
 .country_form{
+  margin-top: 25px;
   display: flex;
   justify-content: center;
 }
@@ -53,4 +58,22 @@
   height: 35px;
   width: 70px;
   margin-left: 10px;
+}
+
+.select_country_bar{
+  width: 320px;
+}
+
+.country_data_page{
+  display: flex;
+  justify-content: center;
+}
+
+.country_data_card{
+  margin-top: 30px;
+  width: 1500px;
+  height: 1200px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
