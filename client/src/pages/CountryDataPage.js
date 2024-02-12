@@ -5,9 +5,7 @@ import axios from 'axios'
 import CountryDataCard from '../components/CountryDataCard';
 
 const CountryDataPage = () => {
-  const {countryName} = useParams();
   const [countryData, setCountryData] = useState([])
-
   
 
   useEffect(() => {
@@ -17,6 +15,8 @@ const CountryDataPage = () => {
     }
     fetchCountryData()
   }, [])
+  const {countryName} = useParams();
+
 
   return (
     <div className='country_data_page'>

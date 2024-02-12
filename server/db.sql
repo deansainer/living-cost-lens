@@ -99,7 +99,7 @@ INSERT INTO Cities (id, name) VALUES (85, 'Tunisia');
 INSERT INTO Cities (id, name) VALUES (86, 'Turkey');
 
 
-
+select * from Expenses join Countries on country_id=id where country_name='France';
 
 
 

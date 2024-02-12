@@ -1,6 +1,9 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
-const CountryDataCard = ({countryData, countryName}) => {
+
+const CountryDataCard = ({countryData}) => {
+    const {countryName} = useParams()
     const salariesAndFinancing = countryData.filter((item) => item.type === 'Salaries And Financing')
     const markets = countryData.filter((item) => item.type === 'Markets')
     const rentPerMonth = countryData.filter((item) => item.type === 'Rent Per Month')
