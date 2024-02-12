@@ -55,7 +55,7 @@ body{
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  height: 35px;
+  height: 37px;
   width: 70px;
   margin-left: 10px;
 }
@@ -71,9 +71,34 @@ body{
 
 .country_data_card{
   margin-top: 30px;
-  width: 1500px;
-  height: 1200px;
+  width: 70vw;
+  height: 500vh;
   background-color: white;
+  font-family: Georgia, serif;
   border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.country_title{
+  font-size: 80px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.country_data_table{
+  text-align: center;
+}
+
+.expenses_type_img{
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 10px;
+
+}
+
+.expenses_type{
+  font-size: 25px;
+
 }

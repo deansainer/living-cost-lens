@@ -1,8 +1,15 @@
-create table Cities (
+create table Countries (
     id integer primary key,
-    name varchar(55)
+    country_name varchar(55)
 );
 
+
+create table Expenses (
+    country_id integer,
+    type varchar(255),
+    description varchar(255),
+    price decimal
+)
 
 INSERT INTO Cities (id, name) VALUES (1, 'Albania');
 INSERT INTO Cities (id, name) VALUES (2, 'Algeria');
@@ -94,16 +101,11 @@ INSERT INTO Cities (id, name) VALUES (86, 'Turkey');
 
 
 
-create table Expenses (
-    city_id integer,
-    type varchar(255),
-    description varchar(255),
-    price decimal
-)
+
 
 insert into Expenses (city_id, type, description, price) values (1, 'Restaurants', 'Meal, Inexpensive Restaurant', 26.58);
 
-
+alter table Expenses foreign key (country_id) references (Countries.id);
 -----------------------------------------------------------
 
 INSERT INTO Expenses (city_id, type, description, price) VALUES 

@@ -94,12 +94,11 @@ const CountryForm = () => {
       { value: 'Tunisia', label: 'Tunisia' },
       { value: 'Turkey', label: 'Turkey' }
     ];
-    const sortedOptions = options.sort((a, b) => a.label - b.label)
 
   return (
     <div>
        <form className='country_form'>
-        <Select className='select_country_bar' placeholder={'United Kingdom'} onChange={(e) => setCountryName(e.value)} options={sortedOptions}/>
+        <Select className='select_country_bar' placeholder={'United Kingdom'} onChange={(e) => setCountryName(e.value)} options={options}/>
         <Link className={'submit_btn'} to={`/${countryName}`}>Submit</Link>
         </form> 
     </div>
