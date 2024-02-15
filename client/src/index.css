@@ -72,7 +72,7 @@ body{
 .country_data_card{
   margin-top: 30px;
   width: 70vw;
-  height: 500vh;
+  height: 390vh;
   background-color: white;
   font-family: Georgia, serif;
   border-radius: 30px;
@@ -101,4 +101,9 @@ body{
 .expenses_type{
   font-size: 25px;
 
+}
+
+.compare_data_page{
+  display: flex;
+  justify-content: center;
 }

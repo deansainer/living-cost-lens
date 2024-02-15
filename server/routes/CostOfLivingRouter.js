@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 router.get('/:countryName', CostOfLivingController.getDataByCountry)
-router.get('/:countryName/:expensesType', CostOfLivingController.getDataByCountryAndType)
+router.get('/compare/:firstCountry/:secondCountry', CostOfLivingController.compareCountries)
 
 
 

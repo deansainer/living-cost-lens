@@ -1,10 +1,11 @@
-import {Route, Routes, Link} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/HomePage';
 import InfoPage from './pages/InfoPage';
 import ComparePage from './pages/ComparePage';
 import CountryDataPage from './pages/CountryDataPage'
+import CompareDataPage from './pages/CompareDataPage';
 
 
 function App() {
@@ -14,8 +15,10 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/info' element={<InfoPage/>}/>
-        <Route path='/compare' element={<ComparePage/>}/>
         <Route path='/:countryName' element={<CountryDataPage/>}/>
+        <Route path='/compare' element={<ComparePage/>}/>
+        <Route path='/compare/:firstCountry/:secondCountry' element={<CompareDataPage/>}/>
+        
       </Routes>
     </div>
   );

@@ -1,8 +1,11 @@
 import React from 'react'
+import CompareForm from '../components/CompareForm'
 
 const ComparePage = () => {
   return (
-    <div>ComparePage</div>
+    <div>
+      <CompareForm/>
+    </div>
   )
 }
 

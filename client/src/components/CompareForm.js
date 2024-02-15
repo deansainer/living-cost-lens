@@ -3,8 +3,10 @@ import { useState } from 'react'
 import {Link} from 'react-router-dom';
 import Select from 'react-select'
 
-const CountryForm = () => {
-    const [countryName, setCountryName] = useState('')
+
+const CompareForm = () => {
+    const [firstCountry, setFirstCountry] = useState('')
+    const [secondCountry, setSecondCountry] = useState('')
     
     const options = [
       { value: 'Albania', label: 'Albania' },
@@ -97,11 +99,12 @@ const CountryForm = () => {
   return (
     <div>
        <form className='country_form'>
-        <Select className='select_country_bar' placeholder={'United Kingdom'} onChange={(e) => setCountryName(e.value)} options={options}/>
-        <Link className={'submit_btn'} to={`/${countryName}`}>Submit</Link>
+        <Select className='select_country_bar' placeholder={'Ukraine'} onChange={(e) => setFirstCountry(e.value)} options={options}/>
+        <Select className='select_country_bar' placeholder={'Poland'} onChange={(e) => setSecondCountry(e.value)} options={options}/>
+        <Link className={'submit_btn'} to={`/compare/${firstCountry}/${secondCountry}`}>Submit</Link>
         </form> 
     </div>
   )
 }
 
-export default CountryForm;
+export default CompareForm
