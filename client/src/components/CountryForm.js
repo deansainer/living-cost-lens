@@ -96,9 +96,9 @@ const CountryForm = () => {
 
   return (
     <div>
-       <form className='country_form'>
+       <form className='country_form' action={`/country/${countryName}`}>
         <Select className='select_country_bar' placeholder={'United Kingdom'} onChange={(e) => setCountryName(e.value)} options={options}/>
-        <Link className={'submit_btn'} to={`/${countryName}`}>Submit</Link>
+        <button type='submit' className={'submit_btn'}>Submit</button>
         </form> 
     </div>
   )

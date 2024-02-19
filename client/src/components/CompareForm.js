@@ -98,10 +98,11 @@ const CompareForm = () => {
 
   return (
     <div>
-       <form className='country_form'>
+       <form className='country_form' action={`/compare/${firstCountry}/${secondCountry}`}>
         <Select className='select_country_bar' placeholder={'Ukraine'} onChange={(e) => setFirstCountry(e.value)} options={options}/>
         <Select className='select_country_bar' placeholder={'Poland'} onChange={(e) => setSecondCountry(e.value)} options={options}/>
-        <Link className={'submit_btn'} to={`/compare/${firstCountry}/${secondCountry}`}>Submit</Link>
+        <button type='submit' className={'submit_btn'}>Submit</button>
+
         </form> 
     </div>
   )

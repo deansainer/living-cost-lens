@@ -33,7 +33,7 @@ class CostOfLivingController{
                         'secondCountryId': secondCountryItem.id,
                         'secondCountryName': secondCountryItem.country_name,
                         'secondCountryPrice': parseFloat(secondCountryItem.price),
-                        'priceDifference': parseFloat((((parseFloat(secondCountryItem.price) - parseFloat(firstCountryItem.price)) / parseFloat(firstCountryItem.price)) * 100).toFixed(2))
+                        'priceDifference': parseFloat((((parseFloat(secondCountryItem.price) - parseFloat(firstCountryItem.price)) / parseFloat(firstCountryItem.price)) * 100).toFixed(2)*-1)
                     })
                 })
                 return comparsion

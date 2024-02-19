@@ -107,3 +107,9 @@ body{
   display: flex;
   justify-content: center;
 }
+
+.home_page_cards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
