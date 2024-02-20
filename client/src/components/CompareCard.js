@@ -16,7 +16,7 @@ const CompareCard = ({compareData}) => {
 
   return (
     <div className='country_data_card'>
-  <span className='country_title'>{firstCountry} - {secondCountry}</span>
+  <span className='country_title'>{firstCountry}<img className='compare_icon2' alt='compare' src='https://cdn-icons-png.flaticon.com/128/3793/3793562.png'></img>{secondCountry}</span>
   <div className='country_data_table'>
   <table class="table table-striped">
     <thead>

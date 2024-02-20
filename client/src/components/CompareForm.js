@@ -96,9 +96,18 @@ const CompareForm = () => {
       { value: 'Turkey', label: 'Turkey' }
     ];
 
+    function handleSubmit(e) {
+      e.preventDefault()
+      if (firstCountry === secondCountry){
+        alert('Please select different countries')
+      } else{
+        window.location = `/compare/${firstCountry}/${secondCountry}`
+      }
+    }
+
   return (
     <div>
-       <form className='country_form' action={`/compare/${firstCountry}/${secondCountry}`}>
+       <form className='country_form' onSubmit={handleSubmit}>
         <div className='compare_input'>
           <Select className='select_country_bar' placeholder={'Ukraine'} onChange={(e) => setFirstCountry(e.value)} options={options}/>
         </div>

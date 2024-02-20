@@ -94,9 +94,13 @@ const CountryForm = () => {
       { value: 'Turkey', label: 'Turkey' }
     ];
 
+    function handleSubmit(e){
+      e.preventDefault()
+      window.location = `/country/${countryName}`
+    }
   return (
     <div>
-       <form className='country_form' action={`/country/${countryName}`}>
+       <form className='country_form' onSubmit={handleSubmit}>
         <Select className='select_country_bar' placeholder={'United Kingdom'} onChange={(e) => setCountryName(e.value)} options={options}/>
         <button type='submit' className={'submit_btn'}>Submit</button>
         </form> 
