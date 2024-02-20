@@ -21,11 +21,11 @@ const CountryDataCard = ({countryData}) => {
 <div className='country_data_card'>
   <span className='country_title'>{countryName}</span>
   <div className='country_data_table'>
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/1077/1077976.png'/><span className='expenses_type'>Financing</span></th>
-        <th className='w-25' scope="col"></th>
+        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://i.ibb.co/S50kZHd/money.png'/><span className='expenses_type'>Financing</span></th>
+        <th className='w-25' scope="col">Price</th>
       </tr>
     </thead>
     <tbody>
@@ -38,10 +38,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/3514/3514371.png'/><span className='expenses_type'>Markets</span></th>
+        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://i.ibb.co/r2DgrNp/grocery-store.png'/><span className='expenses_type'>Markets</span></th>
         <th className='w-25' scope="col"></th>
       </tr>
     </thead>
@@ -55,10 +55,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/1769/1769483.png'/><span className='expenses_type'>Rent Per Month</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/FDKjTmr/key.png'/><span className='expenses_type'>Rent Per Month</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -72,10 +72,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/3540/3540060.png'/><span className='expenses_type'>Utilities</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/tZNP8C0/plug.png'/><span className='expenses_type'>Utilities</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -89,10 +89,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/2413/2413074.png'/><span className='expenses_type'>Buy Apartment Price</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/bKYbG6B/residential-2.png'/><span className='expenses_type'>Buy Apartment Price</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -106,10 +106,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/1046/1046857.png'/><span className='expenses_type'>Restaurants</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/9chNRMM/dinner.png'/><span className='expenses_type'>Restaurants</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -123,10 +123,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/821/821528.png'/><span className='expenses_type'>Clothing And Shoes</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/1qzcKp3/hanger.png'/><span className='expenses_type'>Clothing And Shoes</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -140,10 +140,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/4163/4163679.png'/><span className='expenses_type'>Sports And Leisure</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/2SN6MHh/ball-of-basketball.png'/><span className='expenses_type'>Sports And Leisure</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -157,10 +157,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/2503/2503517.png'/><span className='expenses_type'>Transportation</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/HrRHTP9/bus.png'/><span className='expenses_type'>Transportation</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -174,10 +174,10 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://cdn-icons-png.flaticon.com/128/13346/13346942.png'/><span className='expenses_type'>Childcare</span></th>
+        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/SXwSbPf/baby.png'/><span className='expenses_type'>Childcare</span></th>
         <th scope="col"></th>
       </tr>
     </thead>

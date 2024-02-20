@@ -8,6 +8,7 @@ function ColorSchemesExample() {
     <div className='navbar'>
       <div>
         <Link className={'home_nav_link'} to={'/'}>Home</Link>
+        <Link className={'nav_link'} to={'/country'}>Country Data</Link>
         <Link className={'nav_link'} to={'/compare'}>Compare</Link>
         <Link className={'nav_link'} to={'/info'}>Info</Link>
       </div>

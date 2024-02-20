@@ -98,10 +98,11 @@ const CountryForm = () => {
       e.preventDefault()
       window.location = `/country/${countryName}`
     }
+
   return (
     <div>
        <form className='country_form' onSubmit={handleSubmit}>
-        <Select className='select_country_bar' placeholder={'United Kingdom'} onChange={(e) => setCountryName(e.value)} options={options}/>
+        <Select className='select_country_bar' placeholder={'Albania'} onChange={(e) => setCountryName(e.value)} options={options}/>
         <button type='submit' className={'submit_btn'}>Submit</button>
         </form> 
     </div>
