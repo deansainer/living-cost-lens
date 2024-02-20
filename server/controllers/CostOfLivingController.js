@@ -23,7 +23,7 @@ class CostOfLivingController{
             function compareCountries(country1, country2){
                 const comparsion = []
                 firstCountryData.forEach((firstCountryItem) => {
-                    const secondCountryItem = secondCountryData.find((item) => item.description === firstCountryItem.description)
+                    const secondCountryItem = secondCountryData.find((item) => item.type === firstCountryItem.type && item.description === firstCountryItem.description)
                     comparsion.push({
                         'type': firstCountryItem.type,
                         'description': firstCountryItem.description,

@@ -43,9 +43,6 @@ body{
   border-radius: 5px;
 }
 
-.country_form button:hover{
-  background-color: black;
-}
 
 .submit_btn{
   display: flex;
@@ -55,9 +52,14 @@ body{
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  height: 37px;
-  width: 70px;
+  height: 40px;
+  width: 78px;
   margin-left: 10px;
+}
+
+.submit_btn:hover{
+  background-color: rgb(37, 37, 37);
+
 }
 
 .select_country_bar{
@@ -108,8 +110,32 @@ body{
   justify-content: center;
 }
 
-.home_page_cards{
+.home_page{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.home_page_card{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  color: black;
+  margin-left: 20px;
+  margin-top: 100px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.compare_input{
+  margin-left: 10px;
+}
+
+.compare_icon{
+  width: 30px;
+  margin-top: 4px;
+  height: 30px;
+  margin-left: 9px;
 }

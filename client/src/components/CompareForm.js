@@ -99,9 +99,16 @@ const CompareForm = () => {
   return (
     <div>
        <form className='country_form' action={`/compare/${firstCountry}/${secondCountry}`}>
-        <Select className='select_country_bar' placeholder={'Ukraine'} onChange={(e) => setFirstCountry(e.value)} options={options}/>
-        <Select className='select_country_bar' placeholder={'Poland'} onChange={(e) => setSecondCountry(e.value)} options={options}/>
-        <button type='submit' className={'submit_btn'}>Submit</button>
+        <div className='compare_input'>
+          <Select className='select_country_bar' placeholder={'Ukraine'} onChange={(e) => setFirstCountry(e.value)} options={options}/>
+        </div>
+
+        <img className='compare_icon' alt='compare' src='https://i.ibb.co/Y3pNt6d/compare.png'></img>
+
+        <div className='compare_input'>
+          <Select className='select_country_bar' placeholder={'Poland'} onChange={(e) => setSecondCountry(e.value)} options={options}/>
+        </div>
+        <button type='submit' className={'submit_btn'}>Compare</button>
 
         </form> 
     </div>

@@ -33,7 +33,8 @@ const CompareCard = ({compareData}) => {
               <td>{item.description}</td>
               {item.description === 'Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate' ? <td>{item.firstCountryPrice} %</td> : <td>{item.firstCountryPrice} €</td>}
               {item.description === 'Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate' ? <td>{item.secondCountryPrice} %</td> : <td>{item.secondCountryPrice} €</td>}
-              <td style={{ color: item.priceDifference > 0 ? 'green' : 'red' }} className='w-25'>{item.priceDifference}%</td>
+              {/* <td style={{ color: item.priceDifference >= 0 ? 'green' : 'red' }} className='w-25'>{item.priceDifference}%</td> */}
+              {item.priceDifference >= 0 ? <td style={{ color:'green'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'red'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -52,8 +53,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
-
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
               
             </tr>
           ))}
@@ -73,7 +73,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -92,7 +92,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -111,7 +111,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -130,7 +130,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -149,7 +149,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -168,7 +168,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -187,7 +187,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
@@ -206,7 +206,7 @@ const CompareCard = ({compareData}) => {
               <td className='w-25'>{item.description}</td>
               <td className='w-25'>{item.firstCountryPrice} €</td>
               <td className='w-25'>{item.secondCountryPrice} €</td>
-              <td style={{ color: item.priceDifference > 0 ? 'red' : 'green' }} className='w-25'>{item.priceDifference}%</td>
+              {item.priceDifference >= 0 ? <td style={{ color:'red'}} className='w-25'>+{item.priceDifference}%</td> : <td style={{ color:'green'}} className='w-25'>{item.priceDifference}%</td>}
             </tr>
           ))}
     </tbody>
