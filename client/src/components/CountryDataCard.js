@@ -1,9 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import Chart from 'chart.js/auto';
+import { Bar, Pie, Line, Doughnut } from "react-chartjs-2";
 
 
 const CountryDataCard = ({countryData}) => {
     const {countryName} = useParams()
+    
     const salariesAndFinancing = countryData.filter((item) => item.type === 'Salaries And Financing')
     const markets = countryData.filter((item) => item.type === 'Markets')
     const rentPerMonth = countryData.filter((item) => item.type === 'Rent Per Month')
@@ -14,6 +17,11 @@ const CountryDataCard = ({countryData}) => {
     const sportsAndLeisure = countryData.filter((item) => item.type === 'Sports And Leisure')
     const transportation = countryData.filter((item) => item.type === 'Transportation')
     const childcare = countryData.filter((item) => item.type === 'Childcare')
+ 
+    function getSumOfPrices(array){
+      return array.reduce((sum, item) => sum + parseFloat(item.price), 0)
+    }
+
 
   return (
     
@@ -24,7 +32,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://i.ibb.co/S50kZHd/money.png'/><span className='expenses_type'>Financing</span></th>
+        <th className='w-25' scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/S50kZHd/money.png'/><span className='expenses_type'>Financing</span></th>
         <th className='w-25' scope="col">Price</th>
       </tr>
     </thead>
@@ -41,7 +49,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://i.ibb.co/r2DgrNp/grocery-store.png'/><span className='expenses_type'>Markets</span></th>
+        <th className='w-25' scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/r2DgrNp/grocery-store.png'/><span className='expenses_type'>Markets</span></th>
         <th className='w-25' scope="col"></th>
       </tr>
     </thead>
@@ -58,7 +66,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/FDKjTmr/key.png'/><span className='expenses_type'>Rent Per Month</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/FDKjTmr/key.png'/><span className='expenses_type'>Rent Per Month</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -75,7 +83,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/tZNP8C0/plug.png'/><span className='expenses_type'>Utilities</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/tZNP8C0/plug.png'/><span className='expenses_type'>Utilities</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -92,7 +100,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/bKYbG6B/residential-2.png'/><span className='expenses_type'>Buy Apartment Price</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/bKYbG6B/residential-2.png'/><span className='expenses_type'>Buy Apartment Price</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -109,7 +117,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/9chNRMM/dinner.png'/><span className='expenses_type'>Restaurants</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/9chNRMM/dinner.png'/><span className='expenses_type'>Restaurants</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -126,7 +134,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/1qzcKp3/hanger.png'/><span className='expenses_type'>Clothing And Shoes</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/1qzcKp3/hanger.png'/><span className='expenses_type'>Clothing And Shoes</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -143,7 +151,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/2SN6MHh/ball-of-basketball.png'/><span className='expenses_type'>Sports And Leisure</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/2SN6MHh/ball-of-basketball.png'/><span className='expenses_type'>Sports And Leisure</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -160,7 +168,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/HrRHTP9/bus.png'/><span className='expenses_type'>Transportation</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/HrRHTP9/bus.png'/><span className='expenses_type'>Transportation</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -177,7 +185,7 @@ const CountryDataCard = ({countryData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/SXwSbPf/baby.png'/><span className='expenses_type'>Childcare</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/SXwSbPf/baby.png'/><span className='expenses_type'>Childcare</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -191,6 +199,8 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
   </div>
+
+
 </div>
 </>
   )

@@ -98,7 +98,7 @@ body{
 .country_data_card{
   margin-top: 30px;
   width: 70vw;
-  height: 390vh;
+  height: 450vh;
   background-color: #212529;
   color: white;;
   font-family: Georgia, serif;
@@ -176,4 +176,9 @@ body{
 .country_flag{
   width: 60px;
   height: 40px;
+}
+
+.pie_chart{
+  width: 800px;
+  height: 800px;
 }

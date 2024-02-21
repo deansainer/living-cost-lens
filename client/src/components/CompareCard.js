@@ -1,5 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import Chart from 'chart.js/auto';
+import { Bar, Pie, Line, Doughnut } from "react-chartjs-2";
+
 const CompareCard = ({compareData}) => {
     const {firstCountry, secondCountry} = useParams()
 
@@ -14,6 +17,14 @@ const CompareCard = ({compareData}) => {
     const transportation = compareData.filter((item) => item.type === 'Transportation')
     const childcare = compareData.filter((item) => item.type === 'Childcare')
 
+    function getSumOfFirstCountryPrices(array){
+      return array.reduce((sum, item) => sum + parseFloat(item.firstCountryPrice), 0)
+    }
+
+    function getSumOfSecondCountryPrices(array){
+      return array.reduce((sum, item) => sum + parseFloat(item.secondCountryPrice), 0)
+    }
+
   return (
     <div className='country_data_card'>
   <span className='country_title'>{firstCountry}<img className='compare_icon2' alt='compare' src='https://i.ibb.co/Y3pNt6d/compare.png'></img>{secondCountry}</span>
@@ -21,7 +32,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://i.ibb.co/S50kZHd/money.png'/><span className='expenses_type'>Financing</span></th>
+        <th className='w-25' scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/S50kZHd/money.png'/><span className='expenses_type'>Financing</span></th>
         <th className='w-25' scope="col">{firstCountry}</th>
         <th className='w-25' scope="col">{secondCountry}</th>
         <th className='w-25' scope="col">Difference</th>
@@ -42,7 +53,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th className='w-25' scope="col"><img className='expenses_type_img' src='https://i.ibb.co/r2DgrNp/grocery-store.png'/><span className='expenses_type'>Markets</span></th>
+        <th className='w-25' scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/r2DgrNp/grocery-store.png'/><span className='expenses_type'>Markets</span></th>
         <th className='w-25' scope="col"></th>
       </tr>
     </thead>
@@ -62,7 +73,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/FDKjTmr/key.png'/><span className='expenses_type'>Rent Per Month</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/FDKjTmr/key.png'/><span className='expenses_type'>Rent Per Month</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -81,7 +92,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/tZNP8C0/plug.png'/><span className='expenses_type'>Utilities</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/tZNP8C0/plug.png'/><span className='expenses_type'>Utilities</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -100,7 +111,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/bKYbG6B/residential-2.png'/><span className='expenses_type'>Buy Apartment Price</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/bKYbG6B/residential-2.png'/><span className='expenses_type'>Buy Apartment Price</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -119,7 +130,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/9chNRMM/dinner.png'/><span className='expenses_type'>Restaurants</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/9chNRMM/dinner.png'/><span className='expenses_type'>Restaurants</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -138,7 +149,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/1qzcKp3/hanger.png'/><span className='expenses_type'>Clothing And Shoes</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/1qzcKp3/hanger.png'/><span className='expenses_type'>Clothing And Shoes</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -157,7 +168,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/2SN6MHh/ball-of-basketball.png'/><span className='expenses_type'>Sports And Leisure</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/2SN6MHh/ball-of-basketball.png'/><span className='expenses_type'>Sports And Leisure</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -176,7 +187,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/HrRHTP9/bus.png'/><span className='expenses_type'>Transportation</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/HrRHTP9/bus.png'/><span className='expenses_type'>Transportation</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -195,7 +206,7 @@ const CompareCard = ({compareData}) => {
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col"><img className='expenses_type_img' src='https://i.ibb.co/SXwSbPf/baby.png'/><span className='expenses_type'>Childcare</span></th>
+        <th scope="col"><img alt='img' className='expenses_type_img' src='https://i.ibb.co/SXwSbPf/baby.png'/><span className='expenses_type'>Childcare</span></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -211,6 +222,30 @@ const CompareCard = ({compareData}) => {
     </tbody>
   </table>
   </div>
+
+  <div className='pie_chart'>
+<Line data={{
+    labels: ['Financing', 'Markets', 'Rent Per Month', 'Utilities', 'Buy Apartment Price', 'Restaurants', 'Clothing And Shoes', 'Sports And Leisure', 'Transportation', 'Childcare'],
+    datasets: [
+      {
+        label: `${firstCountry}`,
+        data: [getSumOfFirstCountryPrices(salariesAndFinancing), getSumOfFirstCountryPrices(markets), getSumOfFirstCountryPrices(rentPerMonth),
+          getSumOfFirstCountryPrices(utilities), getSumOfFirstCountryPrices(buyApartmentPrice), getSumOfFirstCountryPrices(restaurants), 
+          getSumOfFirstCountryPrices(clothingAndShoes), getSumOfFirstCountryPrices(sportsAndLeisure), getSumOfFirstCountryPrices(childcare), ]
+      },
+      {
+        label: `${secondCountry}`,
+        data: [getSumOfSecondCountryPrices(salariesAndFinancing), getSumOfSecondCountryPrices(markets), getSumOfSecondCountryPrices(rentPerMonth),
+          getSumOfSecondCountryPrices(utilities), getSumOfSecondCountryPrices(buyApartmentPrice), getSumOfSecondCountryPrices(restaurants), 
+          getSumOfSecondCountryPrices(clothingAndShoes), getSumOfSecondCountryPrices(sportsAndLeisure), getSumOfSecondCountryPrices(childcare), ]
+      }
+    ]
+  }}
+/>
+
+</div>
+
+
 </div>
   )
 }
