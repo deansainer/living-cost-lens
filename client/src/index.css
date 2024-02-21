@@ -98,7 +98,7 @@ body{
 .country_data_card{
   margin-top: 30px;
   width: 70vw;
-  height: 450vh;
+  height: 455vh;
   background-color: #212529;
   color: white;;
   font-family: Georgia, serif;
@@ -178,7 +178,33 @@ body{
   height: 40px;
 }
 
-.pie_chart{
+.chart_data{
+  display: flex;
+  justify-content: center;
+}
+
+.compare_chart{
+  margin-top: 30px;
   width: 800px;
   height: 800px;
 }
+.country_charts{
+  display: flex;
+  justify-content: space-around;
+}
+.pie_country_chart{
+  width: 400px;
+}
+
+.bar_country_chart{
+  margin-top: 30px;
+  width: 650px;
+  margin-top: 100px;
+}
+
+.line_country_chart{
+  margin-top: 30px;
+  width: 800px;
+  margin-top: 60px;
+}
+

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Chart from 'chart.js/auto';
-import { Bar, Pie, Line, Doughnut } from "react-chartjs-2";
+import {Bar, Pie, Line, Doughnut, PolarArea, Radar, Scatter, Bubble, Chart} from "react-chartjs-2";
 
 
 const CountryDataCard = ({countryData}) => {
@@ -198,6 +197,63 @@ const CountryDataCard = ({countryData}) => {
           ))}
     </tbody>
   </table>
+  </div>
+  <div className='country_charts'>
+    <div className='pie_country_chart'>
+      <Pie data={{
+        labels: [
+          'Financing', 'Markets', 'Rent', 
+          'Utilities', 'Buy Apartment Price', 'Restaurants', 
+          'Clothing', 'Sports', 'Childcare' 
+        ],
+        datasets: [
+          {
+            label: `${countryName}`,
+            data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
+              getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
+              getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
+          }
+        ]
+      }}/>
+    </div>
+    
+    <div className='bar_country_chart'>
+      <Bar data={{
+        labels: [
+          'Financing', 'Markets', 'Rent', 
+          'Utilities', 'Buy Apartment Price', 'Restaurants', 
+          'Clothing', 'Sports', 'Childcare' 
+        ],
+        datasets: [
+          {
+            label: `${countryName}`,
+            data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
+              getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
+              getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
+          }
+        ]
+      }}/>
+    </div>
+  </div>
+
+  <div className='country_charts'>
+    <div className='line_country_chart'>
+    <Line data={{
+        labels: [
+          'Financing', 'Markets', 'Rent', 
+          'Utilities', 'Buy Apartment Price', 'Restaurants', 
+          'Clothing', 'Sports', 'Childcare' 
+        ],
+        datasets: [
+          {
+            label: `${countryName}`,
+            data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
+              getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
+              getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
+          }
+        ]
+      }}/>
+    </div>
   </div>
 
 

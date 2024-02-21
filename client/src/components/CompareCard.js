@@ -223,25 +223,27 @@ const CompareCard = ({compareData}) => {
   </table>
   </div>
 
-  <div className='pie_chart'>
-<Line data={{
-    labels: ['Financing', 'Markets', 'Rent Per Month', 'Utilities', 'Buy Apartment Price', 'Restaurants', 'Clothing And Shoes', 'Sports And Leisure', 'Transportation', 'Childcare'],
-    datasets: [
-      {
-        label: `${firstCountry}`,
-        data: [getSumOfFirstCountryPrices(salariesAndFinancing), getSumOfFirstCountryPrices(markets), getSumOfFirstCountryPrices(rentPerMonth),
-          getSumOfFirstCountryPrices(utilities), getSumOfFirstCountryPrices(buyApartmentPrice), getSumOfFirstCountryPrices(restaurants), 
-          getSumOfFirstCountryPrices(clothingAndShoes), getSumOfFirstCountryPrices(sportsAndLeisure), getSumOfFirstCountryPrices(childcare), ]
-      },
-      {
-        label: `${secondCountry}`,
-        data: [getSumOfSecondCountryPrices(salariesAndFinancing), getSumOfSecondCountryPrices(markets), getSumOfSecondCountryPrices(rentPerMonth),
-          getSumOfSecondCountryPrices(utilities), getSumOfSecondCountryPrices(buyApartmentPrice), getSumOfSecondCountryPrices(restaurants), 
-          getSumOfSecondCountryPrices(clothingAndShoes), getSumOfSecondCountryPrices(sportsAndLeisure), getSumOfSecondCountryPrices(childcare), ]
-      }
-    ]
-  }}
-/>
+  <div className='chart_data'>
+    <div className='compare_chart'>
+      <Line data={{
+          labels: ['Financing', 'Markets', 'Rent Per Month', 'Utilities', 'Buy Apartment Price', 'Restaurants', 'Clothing And Shoes', 'Sports And Leisure', 'Transportation', 'Childcare'],
+          datasets: [
+            {
+              label: `${firstCountry}`,
+              data: [getSumOfFirstCountryPrices(salariesAndFinancing), getSumOfFirstCountryPrices(markets), getSumOfFirstCountryPrices(rentPerMonth),
+                getSumOfFirstCountryPrices(utilities), getSumOfFirstCountryPrices(buyApartmentPrice), getSumOfFirstCountryPrices(restaurants), 
+                getSumOfFirstCountryPrices(clothingAndShoes), getSumOfFirstCountryPrices(sportsAndLeisure), getSumOfFirstCountryPrices(childcare), ]
+            },
+            {
+              label: `${secondCountry}`,
+              data: [getSumOfSecondCountryPrices(salariesAndFinancing), getSumOfSecondCountryPrices(markets), getSumOfSecondCountryPrices(rentPerMonth),
+                getSumOfSecondCountryPrices(utilities), getSumOfSecondCountryPrices(buyApartmentPrice), getSumOfSecondCountryPrices(restaurants), 
+                getSumOfSecondCountryPrices(clothingAndShoes), getSumOfSecondCountryPrices(sportsAndLeisure), getSumOfSecondCountryPrices(childcare), ]
+            }
+          ]
+        }}
+      />
+</div>
 
 </div>
 
