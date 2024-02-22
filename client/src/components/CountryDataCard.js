@@ -41,15 +41,19 @@ const CountryDataCard = ({countryData}) => {
     }
 
     let chartComponent;
+    let chartStyle;
 
     if (chartType === 'bar'){
       chartComponent = <Bar data={chartData}/>
+      chartStyle={'width': '1000px'}
 
     } else if (chartType === 'line'){
       chartComponent = <Line data={chartData}/>
+      chartStyle={'width': '1000px'}
 
     } else if (chartType === 'pie'){
       chartComponent = <Pie data={chartData}/>
+      chartStyle={'width': '600px'}
     }
 
 
@@ -231,13 +235,13 @@ const CountryDataCard = ({countryData}) => {
   </div>
 
   <div className='chart_type_buttons'>
-    <button style={chartType === 'bar' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn1' onClick={() => setChartType('bar')}>Bar</button>
     <button style={chartType === 'pie' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn2' onClick={() => setChartType('pie')}>Pie</button>
+    <button style={chartType === 'bar' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn1' onClick={() => setChartType('bar')}>Bar</button>
     <button style={chartType === 'line' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn1' onClick={() => setChartType('line')}>Line</button>
   </div>
 
   <div className='chart_card'>
-    <div className='chart_component'>{chartComponent}</div>
+    <div style={chartStyle} className='chart_component'>{chartComponent}</div>
   </div>
 
 
