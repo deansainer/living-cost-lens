@@ -223,8 +223,8 @@ const CompareCard = ({compareData}) => {
   </table>
   </div>
 
-  <div className='chart_data'>
-    <div className='compare_chart'>
+  <div className='chart_card'>
+    <div className='chart_component'>
       <Line data={{
           labels: ['Financing', 'Markets', 'Rent Per Month', 'Utilities', 'Buy Apartment Price', 'Restaurants', 'Clothing And Shoes', 'Sports And Leisure', 'Transportation', 'Childcare'],
           datasets: [

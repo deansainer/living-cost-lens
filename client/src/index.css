@@ -173,38 +173,29 @@ body{
   width: 30px;
   height: 30px;
 }
-.country_flag{
-  width: 60px;
-  height: 40px;
-}
 
-.chart_data{
+.chart_card{
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
+.chart_component{
+  margin-top: 50px;
+  width: 1000px;
+}
+
+.chart_type_buttons{
+  width: 100%;
+}
+
+.chart_type_buttons button{
+  width: 33.3%;
+  border: 0px;
+  color: white;
+  height: 50px;
+}
+
 .compare_chart{
-  margin-top: 30px;
-  width: 800px;
-  height: 800px;
+  width: 1000px;
 }
-.country_charts{
-  display: flex;
-  justify-content: space-around;
-}
-.pie_country_chart{
-  width: 400px;
-}
-
-.bar_country_chart{
-  margin-top: 30px;
-  width: 650px;
-  margin-top: 100px;
-}
-
-.line_country_chart{
-  margin-top: 30px;
-  width: 800px;
-  margin-top: 60px;
-}
-

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import {Bar, Pie, Line, Doughnut, PolarArea, Radar, Scatter, Bubble, Chart} from "react-chartjs-2";
+import {Bar, Pie, Line} from "react-chartjs-2";
 
 
 const CountryDataCard = ({countryData}) => {
+
+    const [chartType, setChartType] = useState('bar')
+    
     const {countryName} = useParams()
     
     const salariesAndFinancing = countryData.filter((item) => item.type === 'Salaries And Financing')
@@ -19,6 +22,34 @@ const CountryDataCard = ({countryData}) => {
  
     function getSumOfPrices(array){
       return array.reduce((sum, item) => sum + parseFloat(item.price), 0)
+    }
+
+    const chartData = {
+      labels: [
+        'Financing', 'Markets', 'Rent', 
+        'Utilities', 'Buy Apartment Price', 'Restaurants', 
+        'Clothing', 'Sports', 'Childcare' 
+      ],
+      datasets: [
+        {
+          label: `${countryName}`,
+          data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
+            getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
+            getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
+        }
+      ]
+    }
+
+    let chartComponent;
+
+    if (chartType === 'bar'){
+      chartComponent = <Bar data={chartData}/>
+
+    } else if (chartType === 'line'){
+      chartComponent = <Line data={chartData}/>
+
+    } else if (chartType === 'pie'){
+      chartComponent = <Pie data={chartData}/>
     }
 
 
@@ -198,62 +229,15 @@ const CountryDataCard = ({countryData}) => {
     </tbody>
   </table>
   </div>
-  <div className='country_charts'>
-    <div className='pie_country_chart'>
-      <Pie data={{
-        labels: [
-          'Financing', 'Markets', 'Rent', 
-          'Utilities', 'Buy Apartment Price', 'Restaurants', 
-          'Clothing', 'Sports', 'Childcare' 
-        ],
-        datasets: [
-          {
-            label: `${countryName}`,
-            data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
-              getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
-              getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
-          }
-        ]
-      }}/>
-    </div>
-    
-    <div className='bar_country_chart'>
-      <Bar data={{
-        labels: [
-          'Financing', 'Markets', 'Rent', 
-          'Utilities', 'Buy Apartment Price', 'Restaurants', 
-          'Clothing', 'Sports', 'Childcare' 
-        ],
-        datasets: [
-          {
-            label: `${countryName}`,
-            data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
-              getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
-              getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
-          }
-        ]
-      }}/>
-    </div>
+
+  <div className='chart_type_buttons'>
+    <button style={chartType === 'bar' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn1' onClick={() => setChartType('bar')}>Bar</button>
+    <button style={chartType === 'pie' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn2' onClick={() => setChartType('pie')}>Pie</button>
+    <button style={chartType === 'line' ? {backgroundColor: '#2C3034'} : {backgroundColor: '#212529'}} className='btn1' onClick={() => setChartType('line')}>Line</button>
   </div>
 
-  <div className='country_charts'>
-    <div className='line_country_chart'>
-    <Line data={{
-        labels: [
-          'Financing', 'Markets', 'Rent', 
-          'Utilities', 'Buy Apartment Price', 'Restaurants', 
-          'Clothing', 'Sports', 'Childcare' 
-        ],
-        datasets: [
-          {
-            label: `${countryName}`,
-            data: [getSumOfPrices(salariesAndFinancing), getSumOfPrices(markets), getSumOfPrices(rentPerMonth),
-              getSumOfPrices(utilities), getSumOfPrices(buyApartmentPrice), getSumOfPrices(restaurants), 
-              getSumOfPrices(clothingAndShoes), getSumOfPrices(sportsAndLeisure), getSumOfPrices(childcare), ]
-          }
-        ]
-      }}/>
-    </div>
+  <div className='chart_card'>
+    <div className='chart_component'>{chartComponent}</div>
   </div>
 
 
