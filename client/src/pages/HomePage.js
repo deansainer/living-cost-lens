@@ -2,6 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 const HomePage = () => {
+
+  const authToken = false
   return (
     
     <div className='home_page'>

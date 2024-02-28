@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import InfoPage from './pages/InfoPage';
 import CountryDataPage from './pages/CountryDataPage'
 import CompareDataPage from './pages/CompareDataPage';
+import Auth from './components/Auth';
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Route path='/compare' element={<CompareDataPage/>}/>
         <Route path='/compare/:firstCountry/:secondCountry' element={<CompareDataPage/>}/>
         
+        <Route path='/auth' element={<Auth/>}/>
+
       </Routes>
     </div>
   );
