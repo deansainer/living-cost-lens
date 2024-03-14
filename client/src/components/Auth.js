@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import {useCookies} from 'react-cookie'
 
 const Auth = () => {
 
@@ -7,19 +8,29 @@ const Auth = () => {
     setIsLogin(status)
     console.log(isLogin);
   }
+  
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [cookies, setCookies, removeCookies] = useCookies(null)
 
   async function handleSubmit(e, endpoint){
     e.preventDefault()
-    if(password === confirmPassword){
-        const response = await axios.post(`http://localhost:3001/api/users/${endpoint}`, {
+    if (password === confirmPassword || endpoint === 'login') {
+      const response = await axios.post(`http://localhost:3001/api/users/${endpoint}`, {
             email: email,
             password: password
         })
-        console.log('user created');
+        if(!response.data.token){
+          console.log('error');
+        } else {
+            setCookies('Email', response.data.email)
+            setCookies('AuthToken', response.data.token)
+            
+            window.location.reload()
+        }
+
     }
   }
 

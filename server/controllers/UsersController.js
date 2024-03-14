@@ -1,4 +1,5 @@
 const pool = require("../db");
+var jwt = require('jsonwebtoken');
 
 class UsersController {
 
@@ -16,15 +17,27 @@ class UsersController {
     try {
       const {email, password} = req.body;
       const user = await pool.query("insert into users (email, password) values ($1, $2)", [email, password])
-      res.send(user.rows)
-    } catch (error) {
+      const token = jwt.sign({email}, 'secret', {expiresIn: '1hr'})            
+      res.json({email, token})
+    } 
+    catch (error) {
       res.send(error);
     }
   }
 
   async logIn(req, res){
+    const {email, password} = req.body;
     try {
-      res.send('Login functionality isnt finished')
+      const user = await pool.query('select * from users where email = $1', [email])
+      if (!user.rows[0]){
+        res.json({error: 'Incorrect user data.'})           
+      } else {
+        const token = jwt.sign({email}, 'secret', {expiresIn: '1hr'})
+        res.json({email: user.rows[0].email, token}) 
+      }
+
+      
+      
     } catch (error) {
       res.send(error);
     }
