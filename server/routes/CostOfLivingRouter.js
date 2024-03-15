@@ -3,11 +3,16 @@ const UsersController = require('../controllers/UsersController')
 const express = require('express')
 const router = express.Router()
 
-
+//users
 router.get('/users', UsersController.getUsers)
 router.post('/users/signup', UsersController.signUp)
 router.post('/users/login', UsersController.logIn)
 
+//comments
+router.post('/comments/new', UsersController.createUserComment)
+router.get('/comments', UsersController.getComments)
+
+//countries
 router.get('/:countryName', CostOfLivingController.getDataByCountry)
 router.get('/compare/:firstCountry/:secondCountry', CostOfLivingController.compareCountries)
 

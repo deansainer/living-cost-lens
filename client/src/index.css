@@ -202,13 +202,13 @@ body{
 
 .overlay{
   position: absolute;
-  background-color: rgb(46, 43, 43);
+  background-color: rgb(30, 47, 63);
   height: 95vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
 }
 
 .form_container{
@@ -236,4 +236,10 @@ body{
   margin-top: 30px;
   display: flex;
   width: 300px;
+}
+
+.sign_out_nav{
+  margin-left: 1415px;
+  cursor:pointer;
+
 }

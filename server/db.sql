@@ -13,9 +13,18 @@ create table Expenses (
 
 
 create table Users(
-    email varchar(55) primary key,
+    username varchar(55) primary key,
     password varchar(55)
 );
+
+CREATE TABLE Comments (
+    comment_id SERIAL PRIMARY KEY,
+    country_id INTEGER REFERENCES Countries(id),
+    user_username VARCHAR(55) REFERENCES Users(username),
+    comment_text TEXT
+);
+
+insert into comments(country_id, user_username, comment_text) values (1, 'adidas', 'test text');
 
 insert into Users (email, password) values ('admin2@gmail.com', 'qwerty123');
 

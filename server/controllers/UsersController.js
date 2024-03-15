@@ -15,10 +15,10 @@ class UsersController {
 
   async signUp(req, res){
     try {
-      const {email, password} = req.body;
-      const user = await pool.query("insert into users (email, password) values ($1, $2)", [email, password])
-      const token = jwt.sign({email}, 'secret', {expiresIn: '1hr'})            
-      res.json({email, token})
+      const {username, password} = req.body;
+      const user = await pool.query("insert into users (username, password) values ($1, $2)", [username, password])
+      const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})            
+      res.json({username, token})
     } 
     catch (error) {
       res.send(error);
@@ -26,14 +26,14 @@ class UsersController {
   }
 
   async logIn(req, res){
-    const {email, password} = req.body;
+    const {username, password} = req.body;
     try {
-      const user = await pool.query('select * from users where email = $1', [email])
+      const user = await pool.query('select * from users where username = $1', [username])
       if (!user.rows[0]){
         res.json({error: 'Incorrect user data.'})           
       } else {
-        const token = jwt.sign({email}, 'secret', {expiresIn: '1hr'})
-        res.json({email: user.rows[0].email, token}) 
+        const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})
+        res.json({username: user.rows[0].username, token}) 
       }
 
       
@@ -43,7 +43,24 @@ class UsersController {
     }
   }
 
-  
+  async createUserComment(req, res){
+    const {countryId, userUsername, commentText} = req.body;
+    try {
+      const comment = await pool.query('insert into comments(country_id, user_username, comment_text) values($1, $2, $3)', [countryId, userUsername, commentText])
+      res.json('success')
+    } catch (error) {
+      res.json(error)
+    }
+  }
+
+  async getComments(req, res){
+    try {
+      const comments = await pool.query('select * from comments')
+      res.json(comments.rows)
+    } catch (error) {
+      res.json(error)
+    }
+  }
 
 
 }

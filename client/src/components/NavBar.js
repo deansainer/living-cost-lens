@@ -1,9 +1,16 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+
 
 function ColorSchemesExample() {
+  const [cookies, setCookies, removeCookies] = useCookies(null)
+
+  function signOut(){
+    removeCookies('Username')
+    removeCookies('AuthToken')
+  }
+  
+  const username = cookies.Username
   return (
     <div className='navbar'>
       <div>
@@ -11,6 +18,7 @@ function ColorSchemesExample() {
         <Link className={'nav_link'} to={'/country'}>Country Data</Link>
         <Link className={'nav_link'} to={'/compare'}>Compare</Link>
         <Link className={'nav_link'} to={'/info'}>Info</Link>
+        <span onClick={signOut} className='sign_out_nav'>Sign Out</span>
       </div>
     </div>
   );
