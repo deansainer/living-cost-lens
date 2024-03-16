@@ -23,6 +23,7 @@ const Auth = () => {
     if(response.data.token && response.data.username){
       Cookies.set('username', response.data.username, { expires: 7 });
       Cookies.set('token', response.data.token, { expires: 7 });
+      window.location.reload()
     } else {
       setMessage('Auth action failed :(')
     }

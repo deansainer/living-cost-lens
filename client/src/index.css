@@ -239,7 +239,16 @@ body{
 }
 
 .sign_out_nav{
-  margin-left: 1415px;
   cursor:pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+}
 
+.signout_div{
+  display: flex;
+}
+
+.username_nav{
+  margin-right: 15px;
 }
