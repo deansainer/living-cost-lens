@@ -38,13 +38,12 @@ const Auth = () => {
   }
 
   return (
-    <>
-    {message && <Alert className='message_alert' severity="error">{message}</Alert>}
-
     <div className='overlay'>
+      
         <div className='form_container'>
-          
-            {isLogin ? <h3>Log in</h3> : <h3>Sign up</h3>}
+        {message && <Alert className='message_alert' severity="error">{message}</Alert>}
+
+            {isLogin ? <h3 className='type_of_form'>Log in</h3> : <h3 className='type_of_form'>Register</h3>}
             <form className='auth_form'>
                 <input value={username} type='text' placeholder='username' onChange={(e) => setUsername(e.target.value)}></input>
                 <input value={password} type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)}></input>
@@ -53,12 +52,11 @@ const Auth = () => {
             </form>
     
             <div className='auth_buttons'>
-                <button style={isLogin ? {backgroundColor: '#868686'} : {backgroundColor: 'white'}} type='button' onClick={() => viewLogIn(true)} className='auth_type_btn'>Log in</button>
-                <button style={isLogin ? {backgroundColor: 'white'} : {backgroundColor: '#868686'}} type='button' onClick={() => viewLogIn(false)} className='auth_type_btn'>Sign in</button>
+                <button style={isLogin ? {backgroundColor: '#cfcfcf'} : {backgroundColor: 'white'}} type='button' onClick={() => viewLogIn(true)} className='auth_type_btn'>Log in</button>
+                <button style={isLogin ? {backgroundColor: 'white'} : {backgroundColor: '#cfcfcf'}} type='button' onClick={() => viewLogIn(false)} className='auth_type_btn'>Sign in</button>
             </div>
         </div>
       </div>
-      </>
   )
 }
 

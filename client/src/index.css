@@ -241,8 +241,7 @@ body{
   border-radius: 10px;
 }
 .auth_form_submit:hover{
-  background-color: #868686;
-  color: white
+  background-color: #dfdfdf;
 }
 .auth_type_btn{
   width: 50%;
@@ -254,7 +253,9 @@ body{
 .auth_buttons{
   margin-top: 30px;
   display: flex;
-  width: 300px;
+  width: 500px;
+  position: absolute;
+  bottom: 300px
 }
 
 .sign_out_nav{
@@ -273,11 +274,14 @@ body{
 }
 
 .message_alert{
-  width: 500px;
   position: absolute;
-  display: flex;
+  top: 250px;
+  width: 500px;
   justify-content: center;
-  margin-left: 710px;
-  margin-top: 200px;
 
+}
+
+.type_of_form{
+  position: absolute;
+  top: 320px;
 }
