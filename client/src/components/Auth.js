@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Alert from '@mui/material/Alert';
 
 const Auth = () => {
 
@@ -37,6 +38,9 @@ const Auth = () => {
   }
 
   return (
+    <>
+    {message && <Alert className='message_alert' severity="error">{message}</Alert>}
+
     <div className='overlay'>
         <div className='form_container'>
           
@@ -52,9 +56,9 @@ const Auth = () => {
                 <button style={isLogin ? {backgroundColor: '#868686'} : {backgroundColor: 'white'}} type='button' onClick={() => viewLogIn(true)} className='auth_type_btn'>Log in</button>
                 <button style={isLogin ? {backgroundColor: 'white'} : {backgroundColor: '#868686'}} type='button' onClick={() => viewLogIn(false)} className='auth_type_btn'>Sign in</button>
             </div>
-            {message && <span style={{color: 'red', marginTop: '15px'}}>{message}</span>}
         </div>
       </div>
+      </>
   )
 }
 

@@ -272,3 +272,12 @@ body{
   margin-right: 15px;
 }
 
+.message_alert{
+  width: 500px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin-left: 710px;
+  margin-top: 200px;
+
+}
