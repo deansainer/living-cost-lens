@@ -17,38 +17,44 @@ const Auth = () => {
 
 
   async function onSubmitForm(e, endpoint){
-    e.preventDefault()
     setMessage('')
-    const response = await axios.post(`http://localhost:3001/api/users/${endpoint}`, {username, password})
-    if(response.data.token && response.data.username){
-      Cookies.set('username', response.data.username, { expires: 7 });
-      Cookies.set('token', response.data.token, { expires: 7 });
-      window.location.reload()
-    } else {
-      setMessage('Auth action failed :(')
+    e.preventDefault()
+    if(!isLogin && password !== confirmPassword){
+      setMessage("Passwords doesnt match")
+      return;
     }
-    
+    const response = await axios.post(`http://localhost:3001/api/users/${endpoint}`, {username, password})
+
+    if(isLogin && !response.data.token){
+      setMessage("Log in failed")
+    } else {
+      if(response.data.token && response.data.username){
+        Cookies.set('username', response.data.username, { expires: 7 });
+        Cookies.set('token', response.data.token, { expires: 7 });
+        window.location.reload()
+      }
+    }
   }
 
   return (
     <div className='overlay'>
         <div className='form_container'>
           
-            {isLogin ? <h4>Log in</h4> : <h4>Sign up</h4>}
+            {isLogin ? <h3>Log in</h3> : <h3>Sign up</h3>}
             <form className='auth_form'>
                 <input value={username} type='text' placeholder='username' onChange={(e) => setUsername(e.target.value)}></input>
                 <input value={password} type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)}></input>
                 {!isLogin && <input  value={confirmPassword} type='password' placeholder='confirm password' onChange={(e) => setConfirmPassword(e.target.value)}></input>}
-                <button onClick={(e) => onSubmitForm(e, isLogin ? 'login' : 'signup')}>Submit</button>
+                <button className='auth_form_submit' onClick={(e) => onSubmitForm(e, isLogin ? 'login' : 'signup')}>Submit</button>
             </form>
-
+    
             <div className='auth_buttons'>
-                <button type='button' onClick={() => viewLogIn(true)} className='auth_btn'>Log in</button>
-                <button type='button' onClick={() => viewLogIn(false)} className='auth_btn'>Sign in</button>
+                <button style={isLogin ? {backgroundColor: '#868686'} : {backgroundColor: 'white'}} type='button' onClick={() => viewLogIn(true)} className='auth_type_btn'>Log in</button>
+                <button style={isLogin ? {backgroundColor: 'white'} : {backgroundColor: '#868686'}} type='button' onClick={() => viewLogIn(false)} className='auth_type_btn'>Sign in</button>
             </div>
-            {message && <span style={{color: 'red'}}>{message}</span>}
+            {message && <span style={{color: 'red', marginTop: '15px'}}>{message}</span>}
         </div>
-        </div>
+      </div>
   )
 }
 
