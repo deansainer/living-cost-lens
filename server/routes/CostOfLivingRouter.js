@@ -1,5 +1,7 @@
 const CostOfLivingController = require('../controllers/CostOfLivingController')
 const UsersController = require('../controllers/UsersController')
+const CommentController = require('../controllers/CommentController')
+
 const express = require('express')
 const router = express.Router()
 
@@ -9,8 +11,8 @@ router.post('/users/signup', UsersController.signUp)
 router.post('/users/login', UsersController.logIn)
 
 //comments
-router.post('/comments/new', UsersController.createUserComment)
-router.get('/comments', UsersController.getComments)
+router.post('/comments/new', CommentController.createComment)
+router.get('/comments', CommentController.getComments)
 
 //countries
 router.get('/:countryName', CostOfLivingController.getDataByCountry)

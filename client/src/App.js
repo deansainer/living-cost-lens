@@ -7,7 +7,7 @@ import CountryDataPage from './pages/CountryDataPage'
 import CompareDataPage from './pages/CompareDataPage';
 import Auth from './components/Auth';
 import Cookies from 'js-cookie';
-
+import Comments from './components/Comments';
 
 function App() {
 
@@ -27,6 +27,8 @@ function App() {
             <Route path='/country/:countryName' element={<CountryDataPage/>}/>
             <Route path='/compare' element={<CompareDataPage/>}/>
             <Route path='/compare/:firstCountry/:secondCountry' element={<CompareDataPage/>}/>
+            <Route path='/comments' element={<Comments/>}/>
+            
           </>
         ) : (
           <Route path='*' element={<Auth/>}/>

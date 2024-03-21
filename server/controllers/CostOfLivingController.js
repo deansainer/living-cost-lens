@@ -43,8 +43,8 @@ class CostOfLivingController{
         } catch (error) {
            res.json(error) 
         }
-    }
 
+    }
 
 
 }
