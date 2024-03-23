@@ -17,7 +17,7 @@ class UsersController {
     try {
       const {username, password} = req.body;
       const isUserExists = await pool.query('select * from users where username=$1', [username])
-      if(!isUserExists.rows[0]){
+      if(!isUserExists.rows[0] && password){
         const user = await pool.query("insert into users (username, password) values ($1, $2)", [username, password])
         const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})            
         res.json({username, token})
