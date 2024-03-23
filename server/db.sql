@@ -18,10 +18,10 @@ create table Users(
 );
 
 CREATE TABLE Comments (
-    comment_id SERIAL PRIMARY KEY,
-    country_id INTEGER REFERENCES Countries(id),
-    user_username VARCHAR(55) REFERENCES Users(username),
-    comment_text TEXT
+    id SERIAL PRIMARY KEY,
+    country VARCHAR(55),
+    username VARCHAR(55) REFERENCES Users(username),
+    text TEXT
 );
 
 insert into comments(country_id, user_username, comment_text) values (1, 'adidas', 'test text');

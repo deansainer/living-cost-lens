@@ -289,13 +289,12 @@ body{
 .comments_container{
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
+  margin-top: 30px;
 }
 .comments_box{
-  width: 700px;
+  width: 1000px;
   height: 500px;
-  background-color: white;
   border-radius: 25px;
 }
 .comments_form{
@@ -304,11 +303,11 @@ body{
 }
 
 .comments_form input{
-  width: 500px;
+  width: 800px;
   outline: none;
   margin-left: 50px;
   border-radius: 5px;
-  border: 1px solid rgb(126, 126, 126);
+  border: 1px solid rgb(114, 114, 114);
 }
 
 .comments_form button{
@@ -323,17 +322,20 @@ body{
   margin-top: 15px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .comment{
   border: 1px solid black;
   border-radius: 8px;
-  width: 600px;
+  width: 900px;
   height: 80px;
-  background-color: #212529;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-top: 7px;
+  margin-left: 50px;
 }
 
 .comment_text{
@@ -355,3 +357,20 @@ body{
   margin-right: 5px;
   margin-bottom: 4px;
 }
+
+.comments_header{
+  display: flex;
+  justify-content: center;
+}
+
+.comments_header span{
+  font-size: 35px;
+}
+
+.delete_comment_icon{
+  width: 15px;
+  height: 15px;
+  float: right;
+  margin-right: 5px;
+}
+

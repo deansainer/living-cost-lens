@@ -11,6 +11,7 @@ router.post('/users/signup', UsersController.signUp)
 router.post('/users/login', UsersController.logIn)
 
 //comments
+router.get('/comments/:countryName', CommentController.getCommentsByCountry)
 router.post('/comments/new', CommentController.createComment)
 router.get('/comments', CommentController.getComments)
 

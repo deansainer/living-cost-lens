@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {Bar, Pie, Line} from "react-chartjs-2";
-
+import Comments from './Comments';
 
 const CountryDataCard = ({countryData}) => {
 
@@ -243,8 +243,7 @@ const CountryDataCard = ({countryData}) => {
   <div className='chart_card'>
     <div style={chartStyle} className='chart_component'>{chartComponent}</div>
   </div>
-
-
+  <Comments countryName={countryName}/>
 </div>
 </>
   )

@@ -8,9 +8,15 @@ class CommentController{
     }
     
     async createComment(req, res){
-        const {countryId, userUsername, commentText} = req.body;
-        const comment = await pool.query('insert into comments (country_id, user_username, comment_text) values ($1, $2, $3)', [countryId, userUsername, commentText])
+        const {countryName, userUsername, commentText} = req.body;
+        const comment = await pool.query('insert into comments (country, username, text) values ($1, $2, $3)', [countryName, userUsername, commentText])
         res.json(comment.rows[0])
+    }
+
+    async getCommentsByCountry(req, res){
+        const {countryName} = req.params;
+        const comments = await pool.query('select * from comments where country=$1', [countryName])
+        res.json(comments.rows)
     }
 
 }
