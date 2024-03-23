@@ -14,6 +14,8 @@ router.post('/users/login', UsersController.logIn)
 router.get('/comments/:countryName', CommentController.getCommentsByCountry)
 router.post('/comments/new', CommentController.createComment)
 router.get('/comments', CommentController.getComments)
+router.delete('/comments/delete/:commentId', CommentController.deleteComment)
+
 
 //countries
 router.get('/:countryName', CostOfLivingController.getDataByCountry)

@@ -9,6 +9,12 @@ const Comments = (props) => {
 
   const [countryComments, setCountryComments] = useState([])
 
+  async function deleteComment(commentId){
+    const deletedComment = await axios.delete(`http://localhost:3001/api/comments/delete/${commentId}`)
+    getComments()
+    console.log('deleted');
+  }
+
   async function getComments(){
     const response = await axios.get(`http://localhost:3001/api/comments/${props.countryName}`)
     setCountryComments(response.data)
@@ -49,18 +55,15 @@ const Comments = (props) => {
         <div className='comments_list'>
           {countryComments.map((comment) => (
             <div className='comment'>
-              <div className='comment_text_and_delete'>
+              <div>
                 <span className='comment_text'>{comment.text}</span>
-                <img className='delete_comment_icon' src='https://cdn-icons-png.flaticon.com/128/1828/1828945.png'></img>
+                {currentUser === comment.username && 
+                <img onClick={() => deleteComment(comment.id)} alt='del' className='delete_comment_icon' src='https://cdn-icons-png.flaticon.com/128/2976/2976286.png'></img>}
               </div>
             <div className='comment_user'>
               <div>
-                <img src='https://cdn-icons-png.flaticon.com/128/456/456212.png'></img>
+                <img alt='user' src='https://cdn-icons-png.flaticon.com/128/456/456212.png'></img>
                 <span>{comment.username}</span>
-              </div>
-
-              <div className='upvote_'>
-                <span>upvote</span>
               </div>
             </div>
           </div>

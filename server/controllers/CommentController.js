@@ -19,6 +19,12 @@ class CommentController{
         res.json(comments.rows)
     }
 
+    async deleteComment(req, res){
+        const {commentId} = req.params;
+        const comment = await pool.query('delete from comments where id=$1', [commentId])
+        res.json(comment.rows[0])
+    }
+
 }
 
 
