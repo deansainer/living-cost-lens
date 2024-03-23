@@ -25,9 +25,11 @@ const Auth = () => {
       return;
     }
     const response = await axios.post(`http://localhost:3001/api/users/${endpoint}`, {username, password})
-
+ 
     if(isLogin && !response.data.token){
       setMessage("Log in failed")
+    } else if(!isLogin && password.length<4){
+      setMessage('Minimum password length is 4')
     } else {
       if(response.data.token && response.data.username){
         Cookies.set('username', response.data.username, { expires: 7 });
