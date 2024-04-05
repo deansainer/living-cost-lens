@@ -11,12 +11,12 @@ import Comments from './components/Comments';
 
 function App() {
 
-
   const token = Cookies.get('token')
   const username = Cookies.get('username')
 
   return (
     <div className="App">
+      
       <NavBar/>
       <Routes>
         {token && username ? (

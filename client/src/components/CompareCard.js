@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Chart from 'chart.js/auto';
-import { Bar, Pie, Line, Doughnut } from "react-chartjs-2";
+import {Line} from "react-chartjs-2";
 
 const CompareCard = ({compareData}) => {
     const {firstCountry, secondCountry} = useParams()

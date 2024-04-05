@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {Bar, Pie, Line} from "react-chartjs-2";
 import Comments from './Comments';
+import Chart from 'chart.js/auto';
 
 const CountryDataCard = ({countryData}) => {
 

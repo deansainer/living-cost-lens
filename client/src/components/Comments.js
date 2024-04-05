@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie';
+import moment from 'moment';
 
 const Comments = (props) => {
   const [comment, setComment] = useState('')
@@ -20,6 +21,8 @@ const Comments = (props) => {
     setCountryComments(response.data)
   }
 
+
+  
   useEffect(() => {
     getComments()
   }, [])
@@ -31,7 +34,7 @@ const Comments = (props) => {
       const response = await axios.post('http://localhost:3001/api/comments/new', {
         countryName: props.countryName,
         userUsername: currentUser,
-        commentText: comment
+        commentText: comment,
       })
       setComment('')
       getComments()
@@ -64,6 +67,9 @@ const Comments = (props) => {
               <div>
                 <img alt='user' src='https://cdn-icons-png.flaticon.com/128/456/456212.png'></img>
                 <span>{comment.username}</span>
+              </div>
+              <div className='comment_date'>
+              {moment(comment.date).format('DD/MM/YYYY')}
               </div>
             </div>
           </div>

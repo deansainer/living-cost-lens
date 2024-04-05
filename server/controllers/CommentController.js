@@ -8,8 +8,9 @@ class CommentController{
     }
     
     async createComment(req, res){
+        const date = new Date()
         const {countryName, userUsername, commentText} = req.body;
-        const comment = await pool.query('insert into comments (country, username, text) values ($1, $2, $3)', [countryName, userUsername, commentText])
+        const comment = await pool.query('insert into comments (country, username, text, date) values ($1, $2, $3, $4)', [countryName, userUsername, commentText, date])
         res.json(comment.rows[0])
     }
 

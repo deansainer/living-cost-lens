@@ -1,5 +1,6 @@
 const pool = require("../db");
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 class UsersController {
 
@@ -18,7 +19,8 @@ class UsersController {
       const {username, password} = req.body;
       const isUserExists = await pool.query('select * from users where username=$1', [username])
       if(!isUserExists.rows[0] && password){
-        const user = await pool.query("insert into users (username, password) values ($1, $2)", [username, password])
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const user = await pool.query("insert into users (username, password) values ($1, $2)", [username, hashedPassword])
         const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})            
         res.json({username, token})
       } else {
@@ -34,13 +36,14 @@ class UsersController {
     const {username, password} = req.body;
     try {
       const user = await pool.query('select * from users where username = $1', [username])
+      const passwordMatch = await bcrypt.compare(password, user.rows[0].password)
       if (!user.rows[0]){
         res.json({error: 'User doesnt exists'})           
-      } else if(user.rows[0].password !== password){
-        res.json({error: 'Invalid password'})           
-      } else {
+      } else if(passwordMatch) {
         const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})
         res.json({username: user.rows[0].username, token}) 
+      } else{
+        res.json('invalid password')
       }
     } catch (error) {
       res.send(error);
