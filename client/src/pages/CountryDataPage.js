@@ -12,7 +12,7 @@ const CountryDataPage = () => {
 
   useEffect(() => {
     async function fetchCountryData(){
-      const response = await axios.get(`http://localhost:3001/api/${countryName}`)
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/${countryName}`)
       setCountryData(response.data)
     }
     fetchCountryData()

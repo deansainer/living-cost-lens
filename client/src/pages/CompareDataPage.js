@@ -11,7 +11,7 @@ const CompareDataPage = () => {
   useEffect(() => {
     async function fetchComparsionData() {
       const response = await axios.get(
-        `http://localhost:3001/api/compare/${firstCountry}/${secondCountry}`
+        `${process.env.REACT_APP_SERVER_URL}/compare/${firstCountry}/${secondCountry}`
       );
       setCompareData(response.data);
     }

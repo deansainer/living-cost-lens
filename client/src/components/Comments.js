@@ -11,13 +11,13 @@ const Comments = (props) => {
   const [countryComments, setCountryComments] = useState([])
 
   async function deleteComment(commentId){
-    const deletedComment = await axios.delete(`http://localhost:3001/api/comments/delete/${commentId}`)
+    const deletedComment = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/comments/delete/${commentId}`)
     getComments()
     console.log('deleted');
   }
 
   async function getComments(){
-    const response = await axios.get(`http://localhost:3001/api/comments/${props.countryName}`)
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/comments/${props.countryName}`)
     setCountryComments(response.data)
   }
 
@@ -31,7 +31,7 @@ const Comments = (props) => {
   async function handleSubmit(e){
     e.preventDefault()
     if(comment){
-      const response = await axios.post('http://localhost:3001/api/comments/new', {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/comments/new`, {
         countryName: props.countryName,
         userUsername: currentUser,
         commentText: comment,

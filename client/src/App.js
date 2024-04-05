@@ -9,11 +9,11 @@ import Auth from './components/Auth';
 import Cookies from 'js-cookie';
 import Comments from './components/Comments';
 
-function App() {
 
+function App() {
   const token = Cookies.get('token')
   const username = Cookies.get('username')
-
+  console.log(process.env.REACT_APP_SERVER_URL);
   return (
     <div className="App">
       

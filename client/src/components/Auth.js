@@ -24,7 +24,7 @@ const Auth = () => {
       setMessage("Passwords doesnt match")
       return;
     }
-    const response = await axios.post(`http://localhost:3001/api/users/${endpoint}`, {username, password})
+    const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${endpoint}`, {username, password})
  
     if(isLogin && !response.data.token){
       setMessage("Log in failed")
