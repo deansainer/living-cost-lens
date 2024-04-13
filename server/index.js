@@ -8,6 +8,10 @@ app.use(cors());
 
 app.use(express.json())
 
+app.get('', (req, res) => {
+    res.send('Server is running')
+})
+
 app.use('/api',CostOfLivingRouter)
 
 app.listen(3001,() => console.log('server is running on 3001 port'))
